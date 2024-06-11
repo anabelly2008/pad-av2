@@ -1,0 +1,75 @@
+var nome = document.querySelector("#nome")
+
+var nivel = document.querySelector("#nivel")
+
+var força = document.querySelector('#forca')
+
+var poder = document.querySelector("#poder")
+
+var agilidade = document.querySelector("#agilidade")
+
+var armadura = document.querySelector("#armadura")
+
+var defesa = document.querySelector("#defesa")
+
+
+nome.addEventListener("change",lerNome)
+
+function lerNome() {
+
+console.log(nome.value)
+}
+
+
+nivel.addEventListener("change",lerNivel)
+
+
+function lerNivel() {
+	var nivelnumero = parseInt(nivel.value)
+
+if (nivelnumero<=5) {
+
+console.log(nome.value + "[INICIANTE]")
+}
+
+else{
+console.log(nome.value + "[VETERANO]")
+}
+}
+
+
+forca.addEventListener("change",atualizarPoderdeAtaque)
+
+nivel.addEventListener("change",atualizarPoderdeAtaque)
+
+function atualizarPoderdeAtaque() {
+
+    var nivelnumero = parseInt(nivel.value);
+    
+    var forcanumero = parseInt(forca.value);
+
+    var PoderdeAtaque = (forcanumero - 10) / 2 + nivelnumero / 2;
+
+
+    poder.value = PoderdeAtaque;
+}
+
+
+
+
+agilidade.addEventListener("change",atualizarDefesa)
+
+armadura.addEventListener("change",atualizarDefesa)
+
+
+function atualizarDefesa() {
+
+var Agilidade = parseInt(agilidade.value)
+
+var Armadura = parseInt(armadura.value)
+
+var Defesa = Agilidade + Armadura;
+
+
+defesa.value = Defesa;
+}
